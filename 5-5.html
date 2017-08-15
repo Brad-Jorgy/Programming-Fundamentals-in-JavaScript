@@ -43,11 +43,11 @@
                 students = parseFloat(document.getElementById("students").value);
                 teams = parseFloat(document.getElementById("teams").value);
                 
-                teamExtra = students % teams;
-                console.log(teamExtra);
-                teamMin = teams - teamExtra;
-                studentsMin = Math.floor(students / teams);
-                studentsExtra = studentsMin + 1;
+                teamExtra = students % teams; //finds the number of teams that will be assigned an extra student
+                teamMin = teams - teamExtra; //finds the number of teams that will NOT be assigned an extra student
+                studentsMin = Math.floor(students / teams); //finds how many students will be assigned to teamMin's
+                studentsExtra = studentsMin + 1; //finds how many students will be assigned to teamExtra's
+                
                 answer1 = teamExtra + " teams have " + studentsExtra + " members and ";
                 answer2 = teamMin + " teams have " + studentsMin + " members";
                 
