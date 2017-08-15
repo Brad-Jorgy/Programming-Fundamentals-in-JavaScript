@@ -1,0 +1,45 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ch. 5, Asgmt. 3</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+
+        <div class="stage">
+            <p> Chapter 5</p>
+            <p>3. Write a defining table and a JavaScript program that asks a user for a distance in meters and then converts that value into miles. Your program should correctly handle real numbers.</p>
+            <form>
+                <p>Enter distance in meters:</p>
+                <input id="meters" type="number" required>
+                
+                <button id="submit" type="button">Submit</button>
+                
+                <p>Conversion to miles: <span id="answer"></span></p>
+            </form>
+        </div>
+        
+        <script>
+            var meters,
+                a;
+            var mile = .000621371;
+            var submit = document.getElementById("submit");
+            
+            function calculate() {
+                meters = parseFloat(document.getElementById("meters").value);
+                a = meters * mile;
+                a = Math.round(100 * a)/100;
+                document.getElementById("answer").innerHTML = a;
+            };
+            
+            submit.addEventListener("click", calculate);
+        </script>
+        
+    </body>
+</html>

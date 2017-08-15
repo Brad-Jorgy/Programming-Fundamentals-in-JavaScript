@@ -1,0 +1,67 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ch. 5, Asgmt. 4</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+
+        <div class="stage">
+            <p> Chapter 5</p>
+            <p>5. A teacher frequently divides her class into teams. Write a defining table and a program that allows her to enter the number of students in her class and the number of teams she wants. The number of members on each team must be as balanced as possible. In other words, if not all of the teams can have the same number of members then some of the teams will have only one more member than the other teams. Your program must output a phrase that tells the teacher how to divide her class into teams. For example, if the teacher entered 27 class members and 8 teams, your program must output “3 teams with 4 members and 5 teams with 3 members.” Your program must list the larger teams first. </p>
+            <form>
+                 <p>Number of students:</p>
+                <input id="students" type="number" required>
+                <p>Number of teams:</p>
+                <input id="teams" type="number" required>
+                
+                <button id="submit" type="button">Submit</button>
+                
+                <p>Result: <span id="answer"></span></p>
+            </form>
+        </div>
+        
+        <script>
+            var students,
+                teams,
+                teamMin, //if teams were evenly divided
+                teamExtra, //teams that have extra students to accomodate overflow
+                studentsMin,
+                studentsExtra,
+                answerFull,
+                answer1, //if there is a remainder (or studentsExtra's), this answer goes first
+                answer2;
+            var submit = document.getElementById("submit");
+            
+            function calculate() {
+                students = parseFloat(document.getElementById("students").value);
+                teams = parseFloat(document.getElementById("teams").value);
+                
+                teamExtra = students % teams;
+                console.log(teamExtra);
+                teamMin = teams - teamExtra;
+                studentsMin = Math.floor(students / teams);
+                studentsExtra = studentsMin + 1;
+                answer1 = teamExtra + " teams have " + studentsExtra + " members and ";
+                answer2 = teamMin + " teams have " + studentsMin + " members";
+                
+                if (teamExtra == 0) {
+                    a = answer2;
+                } else {
+                    a = answer1 + answer2;
+                }
+                
+                document.getElementById("answer").innerHTML = a;
+            };
+            
+            submit.addEventListener("click", calculate);
+        </script>
+        
+    </body>
+</html>

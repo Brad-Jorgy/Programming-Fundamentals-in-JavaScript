@@ -1,0 +1,48 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ch. 5, Asgmt. 4</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+
+        <div class="stage">
+            <p> Chapter 5</p>
+            <p>4. An employee at a grocery store must frequently place boxes of cans in stacks. Write a defining table and a program that allows him to enter the total number of boxes and the number of boxes he will place in each stack. Your program must output the number of stacks he will have to make. All of the stacks except the last one must have the exact number of boxes that the employee specifies. The last stack must have the exact number or fewer boxes. For example, if the employee enters 74 total boxes and 6 boxes in each stack your program must output 13.</p>
+            <form>
+                <p>Total boxes:</p>
+                <input id="boxes" type="number" required>
+                <p>Total stacks:</p>
+                <input id="stacks" type="number" required>
+                
+                <button id="submit" type="button">Submit</button>
+                
+                <p>Number of stacks: <span id="answer"></span></p>
+            </form>
+        </div>
+        
+        <script>
+            var b,
+                s,
+                a;
+            var submit = document.getElementById("submit");
+            
+            function calculate() {
+                b = parseFloat(document.getElementById("boxes").value);
+                s = parseFloat(document.getElementById("stacks").value);
+                a = b / s;
+                a = Math.ceil(a);
+                document.getElementById("answer").innerHTML = a;
+            };
+            
+            submit.addEventListener("click", calculate);
+        </script>
+        
+    </body>
+</html>
