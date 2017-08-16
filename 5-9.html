@@ -1,0 +1,50 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ch. 5, Asgmt. 9</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+
+        <div class="stage">
+            <p> Chapter 5</p>
+            <p>9. The length of a cable can be approximated with this formula... where L is the length of the cable, s is the distance that the cable must span, and d is the distance the cable will sag or dip. Write a defining table and a program that allows a user to enter the distance a cable must span and the distance the cable will sag. Your program must compute and output the length of the cable.</p>
+            <form>
+                <p>Enter span:</p>
+                <input id="span" type="number" required>
+                <p>Enter the distance the cable will sag:</p>
+                <input id="sag" type="number" required>
+                
+                <button id="submit" type="button">Submit</button>
+                
+                <p>Length of the cable: <span id="answer"></span></p>
+            </form>
+        </div>
+        
+        <script>
+            var span,
+                sag,
+                a;
+            var submit = document.getElementById("submit");
+            
+            function calculate() {
+                span = parseFloat(document.getElementById("span").value);
+                sag = parseFloat(document.getElementById("sag").value);
+                
+                a = (8 * span * span / (3 * sag) + 3);
+                a = Math.round(100 * a)/100;
+                
+                document.getElementById("answer").innerHTML = a;
+            };
+            
+            submit.addEventListener("click", calculate);
+        </script>
+        
+    </body>
+</html>
