@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ch. 5, Asgmt. 7</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+
+        <div class="stage">
+            <p> Chapter 5</p>
+            <p>7. When you exercise to strengthen your heart, you should maintain your heart rate within a range. To find that range, subtract your age from 220. This difference is your maximum heart rate per minute. Your heart simply will not beat faster than this maximum (220 − age). When exercising to strengthen your heart, you should keep your heart rate between 65% and 85% of your heart’s maximum. Write a defining table and a JavaScript program that asks for a person’s age and computes and outputs the slowest and fastest rates necessary to strengthen his heart.</p>
+            <form>
+                <p>Enter your age:</p>
+                <input id="age" type="number" required>
+                
+                <button id="submit" type="button">Submit</button>
+                
+                <p>Slowest and fastest rates is: <span id="answer"></span></p>
+            </form>
+        </div>
+        
+        <script>
+            var age,
+                max,
+                high,
+                low,
+                a;
+            var submit = document.getElementById("submit");
+            
+            function calculate() {
+                age = parseFloat(document.getElementById("age").value);
+                
+                max = 220 - age;
+                low = Math.floor(max * .65);
+                high = Math.floor(max * .85);
+                
+                a = low + " - " + high;
+                
+                document.getElementById("answer").innerHTML = a;
+            };
+            
+            submit.addEventListener("click", calculate);
+        </script>
+        
+    </body>
+</html>

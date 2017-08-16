@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ch. 5, Asgmt. 8</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+
+        <div class="stage">
+            <p> Chapter 5</p>
+            <p>8. Write a defining table and a JavaScript program to compute and output an employee’s after tax pay. Your program will read from the keyboard the number of regular hours that an employee worked and that employee’s wage, and then compute that employee’s after tax pay. Tax is 15% of the employee’s gross pay. Your program should correctly handle real numbers.</p>
+            <form>
+                <p>Enter employee hours:</p>
+                <input id="hours" type="number" required>
+                <p>Enter employee hourly pay:</p>
+                <input id="pay" type="number" required>
+                
+                <button id="submit" type="button">Submit</button>
+                
+                <p>Gross pay - 15% tax: <span id="answer"></span></p>
+            </form>
+        </div>
+        
+        <script>
+            var hours,
+                pay,
+                gross,
+                a;
+            var submit = document.getElementById("submit");
+            
+            function calculate() {
+                hours = parseFloat(document.getElementById("hours").value);
+                pay = parseFloat(document.getElementById("pay").value);
+                
+                gross = hours * pay ;
+                a = gross * .15;
+                a = "$" + (gross - a);
+                
+                document.getElementById("answer").innerHTML = a;
+            };
+            
+            submit.addEventListener("click", calculate);
+        </script>
+        
+    </body>
+</html>
