@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ch. 5, Asgmt. 10</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+
+        <div class="stage">
+            <p> Chapter 5</p>
+            <p>10. The size of a car tire in the United States is represented with three numbers like this: 205/60R 15. The first number is the width of the tire in millimeters. The second number is the aspect ratio. The third number is the diameter in inches of the wheel that the tire fits. Write a defining table and a program that reads from the keyboard those three numbers for a tire and computes and outputs the volume of space inside that tire. The volume of space inside a tire can be approximated with this formula.</p>
+            <form>
+                <p>Enter width:</p>
+                <input id="width" type="number" required>
+                <p>Enter aspect ratio:</p>
+                <input id="aspect" type="number" required>
+                <p>Enter diameter:</p>
+                <input id="diameter" type="number" required>
+                
+                <button id="submit" type="button">Submit</button>
+                
+                <p>Volume: <span id="answer"></span></p>
+            </form>
+        </div>
+        
+        <script>
+            var w,
+                a,
+                d,
+                answer;
+            var submit = document.getElementById("submit");
+            
+            function calculate() {
+                w = parseFloat(document.getElementById("width").value);
+                a = parseFloat(document.getElementById("aspect").value);
+                d = parseFloat(document.getElementById("diameter").value);
+                
+                answer = ((w*w) * (a*a)) + (2540*w*a*d);
+                answer = ((Math.PI * w) * answer) / 10000000;
+                answer = Math.round(10 * answer)/10;  //round to nearest 10th.  
+                
+                document.getElementById("answer").innerHTML = answer;
+            };
+            
+            submit.addEventListener("click", calculate);
+        </script>
+        
+    </body>
+</html>
