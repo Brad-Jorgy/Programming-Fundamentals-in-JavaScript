@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ch. 6, Asgmt. 2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+
+        <div class="stage">
+            <p> Chapter 6</p>
+            <p>2. Write a defining table and a program that helps a user choose the correct foot wear for the day’s weather. The following table shows the weather types the user may enter and what your program should output.</p>
+            <form>
+                <p>Select the weather:</p>
+                <select id="weather">
+                    <option value="hot">Hot</option>
+                    <option value="rain">Rain</option>
+                    <option value="snow">Snow</option>
+                    <option value="windy">Windy</option>
+                    <option value="humid">Humid</option>
+                </select>
+                
+                <button id="submit" type="button">Submit</button>
+                
+                <p>You should wear: <span id="answer"></span></p>
+            </form>
+        </div>
+        
+        <script>
+            var firstNo,
+                secondNo,
+                a;
+            var submit = document.getElementById("submit");
+            
+            function calculate() {
+                var weather = document.getElementById("weather").value;
+                console.log(weather);
+                
+                if (weather == "hot") {
+                    a = "Sandals";
+                } else if (weather == "rain") {
+                    a = "Galoshes";
+                } else if (weather == "snow") {
+                    a = "Boots";
+                } else {
+                    a = "Shoes";
+                }
+            
+                document.getElementById("answer").innerHTML = a;
+            };
+            
+            submit.addEventListener("click", calculate);
+        </script>
+        
+    </body>
+</html>

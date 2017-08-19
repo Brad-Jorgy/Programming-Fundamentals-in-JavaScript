@@ -90,6 +90,18 @@ span#answer {
     color: #3a7bd5;
 }
 
+form#chap6 input {
+    display: inline-block;
+    width: 40px;
+}
+
+select#weather {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+
 
 
 
