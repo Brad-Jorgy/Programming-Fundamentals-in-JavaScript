@@ -1,0 +1,121 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ch. 6, Asgmt. 5</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+
+        <div class="stage">
+            <p> Chapter 6</p>
+            <p>5. Roman numerals are still used today to display a year on the cornerstone of buildings. Write a defining table and then a program to convert a four digit decimal number into Roman numerals. </p>
+            <form id="chap6">
+                <input id="firstNo" type="number" required>
+                <input id="secondNo" type="number" required> 
+                <input id="thirdNo" type="number" required>
+                <input id="fourthNo" type="number" required>
+                
+                <button id="submit" type="button">Submit</button>
+                
+                <p>Result: <span id="result"></span></p>
+            </form>
+        </div>
+        
+        <script>
+            var firstNo,
+                secondNo,
+                thirdNo,
+                fourthNo,
+                result;
+            var submit = document.getElementById("submit");
+            
+            function calculate() {
+                var firstNo = parseFloat(document.getElementById("firstNo").value);
+                var secondNo = parseFloat(document.getElementById("secondNo").value);
+                var thirdNo = parseFloat(document.getElementById("thirdNo").value);
+                var fourthNo = parseFloat(document.getElementById("fourthNo").value);
+                
+                //Loops have not been introduced in this book.  Is there an easier way do this without using loops?  
+                
+                if (firstNo == 1) {
+                    result = "M";
+                } else if (firstNo == 2) {
+                    result = "MM";
+                } else if (firstNo >= 3) {
+                    result = "MMM";
+                };
+                
+                if (secondNo == 1) {
+                    result += "C";
+                } else if (secondNo == 2){
+                    result += "CC";
+                } else if (secondNo == 3){
+                    result += "CCC";
+                } else if (secondNo == 4){
+                    result += "CD";
+                } else if (secondNo == 5){
+                    result += "D";
+                } else if (secondNo == 6){
+                    result += "DC";
+                } else if (secondNo == 7){
+                    result += "DCC";
+                } else if (secondNo == 8){
+                    result += "DCCC";
+                } else if (secondNo == 9){
+                    result += "CM";
+                };
+                
+                if (thirdNo == 1) {
+                    result += "X";
+                } else if (thirdNo == 2){
+                    result += "XX";
+                } else if (thirdNo == 3){
+                    result += "XXX";
+                } else if (thirdNo == 4){
+                    result += "XL";
+                } else if (thirdNo == 5){
+                    result += "L";
+                } else if (thirdNo == 6){
+                    result += "LX";
+                } else if (thirdNo == 7){
+                    result += "LXX";
+                } else if (thirdNo == 8){
+                    result += "LXXX";
+                } else if (thirdNo == 9){
+                    result += "XC";
+                };
+                
+                if (fourthNo == 1) {
+                    result += "I";
+                } else if (fourthNo == 2){
+                    result += "II";
+                } else if (fourthNo == 3){
+                    result += "III";
+                } else if (fourthNo == 4){
+                    result += "IV";
+                } else if (fourthNo == 5){
+                    result += "V";
+                } else if (fourthNo == 6){
+                    result += "VI";
+                } else if (fourthNo == 7){
+                    result += "VII";
+                } else if (fourthNo == 8){
+                    result += "VIII";
+                } else if (fourthNo == 9){
+                    result += "IX";
+                }
+                
+                document.getElementById("result").innerHTML = result;
+            };
+            
+            submit.addEventListener("click", calculate);
+        </script>
+        
+    </body>
+</html>

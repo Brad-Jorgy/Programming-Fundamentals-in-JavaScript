@@ -92,12 +92,16 @@ span#answer {
 
 form#chap6 input {
     display: inline-block;
-    width: 40px;
+    width: 35px;
 }
 
 select#weather {
     display: block;
     margin-bottom: 5px;
+}
+
+input#sign {
+    text-align:  center;
 }
 
 
