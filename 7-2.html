@@ -1,0 +1,84 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ch. 7, Asgmt. 2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+
+        <div class="stage">
+            <p> Chapter 7</p>
+            <p>2. Write a defining table and a program that asks the user to enter a month name (January, February, etc.) and then outputs the number of days in the month. For February, output “28 or 29 days”.</p>
+            <form>
+                <select id='ALL12'>
+                    <option value=''>--Select Month--</option>
+                    <option value='1'>Janaury</option>
+                    <option value='2'>February</option>
+                    <option value='3'>March</option>
+                    <option value='4'>April</option>
+                    <option value='5'>May</option>
+                    <option value='6'>June</option>
+                    <option value='7'>July</option>
+                    <option value='8'>August</option>
+                    <option value='9'>September</option>
+                    <option value='10'>October</option>
+                    <option value='11'>November</option>
+                    <option value='12'>December</option>
+                </select> 
+                
+                <button id="submit" type="button">Submit</button>
+                
+                <p>This month has <span id="answer"></span> days.</p>
+            </form>
+        </div>
+        
+        <script>
+            var ALL12,
+                month,
+                a;
+            var submit = document.getElementById("submit");
+            
+            function calculate() {
+                ALL12 = document.getElementById("ALL12");
+                month = parseFloat(ALL12.options[ALL12.selectedIndex].value);
+                
+                if (
+                    month == 1 || 
+                    month == 3 ||
+                    month == 5 ||
+                    month == 7 ||
+                    month == 8 ||
+                    month == 10 ||
+                    month == 12
+                ) 
+                    {
+                        a = "31";
+                    } 
+                else if (
+                    month == 4 ||
+                    month == 6 ||
+                    month == 9 ||
+                    month == 11
+                )
+                    {
+                        a = "30";
+                    }
+                else {
+                    a = "28 or 29";
+                }; 
+                
+                document.getElementById("answer").innerHTML = a;
+            };
+            
+            submit.addEventListener("click", calculate);
+            
+        </script>
+        
+    </body>
+</html>

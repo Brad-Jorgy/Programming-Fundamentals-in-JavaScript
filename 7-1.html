@@ -1,0 +1,58 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ch. 7, Asgmt. 1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+
+        <div class="stage">
+            <p> Chapter 7</p>
+            <p>1. Write a defining table and then a program that reads from the keyboard a student’s name and number of completed university credits and then outputs the student’s name and year in school according to this table. </p>
+            <form>
+                <p>Enter student's name:</p>
+                <input id="name" type="text" required>
+                
+                <p>Enter student's credits:</p>
+                <input id="credits" type="number" required>
+                
+                <button id="submit" type="button">Submit</button>
+                
+                <p><span id="answer"></span></p>
+            </form>
+        </div>
+        
+        <script>
+            var name,
+                credits,
+                a;
+            var submit = document.getElementById("submit");
+            
+            function calculate() {
+                name = document.getElementById("name").value;
+                credits = parseFloat(document.getElementById("credits").value);
+               
+                if (credits <= 30) {
+                    a = name + " is a freshman.";
+                } else if (credits >= 30 && credits < 60) {
+                    a = name + " is a sophmore.";
+                } else if (credits >= 60 && credits < 90) {
+                    a = name + " is a junior.";
+                } else if (credits >= 90) {
+                    a = name + " is a senior.";
+                }
+                
+                document.getElementById("answer").innerHTML = a;
+            };
+            
+            submit.addEventListener("click", calculate);
+        </script>
+        
+    </body>
+</html>

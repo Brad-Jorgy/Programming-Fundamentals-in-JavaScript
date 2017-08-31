@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ch. 7, Asgmt. 4</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+
+        <div class="stage">
+            <p> Chapter 7</p>
+            <p>4. Write a defining table and then a program that determines if you can sleep in or not. Your program should get all its input from your computer’s clock. On all weekdays (Monday through Friday) that are not holidays, your program should output “Get up!” On all other days (weekends and holidays), your program should output “Sleep in.” The three holidays that your program must check... </p>
+                
+            <p>Today is: <span id="today"></span></p>
+                
+            <p><span id="msg"></span></p>
+        </div>
+        
+        <script>
+            var now = new Date();
+            var month = now.getMonth();
+            var dayOfMonth = now.getDate();
+            var dayOfWeek = now.getDay();
+            console.log("now is " + now);
+            console.log("month is " + month);
+            console.log("dayOfMonth is " + dayOfMonth);
+            console.log("dayOfWeek is " + dayOfWeek);
+            
+            var today = now.toDateString();
+            document.getElementById("today").innerHTML = today;
+            
+            //Weekends
+            if ((dayOfWeek == 0) || (dayOfWeek == 6)) {
+                 sleepIn();
+            }
+            //New Year's Day
+            else if ((month == 0) && (dayOfMonth == 1)) {
+                 sleepIn();
+            }
+            //4th of July
+            else if ((month == 6) && (dayOfWeek == 4)) {
+                sleepIn();
+            }
+            //Christmas
+            else if ((month == 11) && (dayOfWeek == 25)) {
+                sleepIn();
+            }
+            
+            else {
+                document.getElementById("msg").innerHTML = "Get Up!";
+            };
+            
+            
+            function sleepIn() {
+                document.getElementById("msg").innerHTML = "Sleep in.";
+            }
+        </script>
+        
+    </body>
+</html>

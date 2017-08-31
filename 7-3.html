@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ch. 7, Asgmt. 3</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+
+        <div class="stage">
+            <p> Chapter 7</p>
+            <p>3. You work for a retail store that wants to increase sales on Tuesday and Wednesday, which are the store’s slowest sales days. Write a defining table and then a program that takes a customer’s subtotal as input and if the subtotal is greater than $50 and today is Tuesday or Wednesday, subtracts 10% from the subtotal. Your program should then compute and output the total amount due by adding sales tax of 6% to the subtotal...</p>
+            <form>
+                <p>Enter the subtotal:</p>
+                <input id="checkout" type="number" required>
+                
+                <button id="submit" type="button">Submit</button>
+                
+                <p>Total: $<span id="answer"></span></p>
+            </form>
+        </div>
+        
+        <script>
+            var checkout,
+                dayOfWeek,
+                discount,
+                tax;
+            var submit = document.getElementById("submit");
+            
+            function calculate() {
+                checkout = parseFloat(document.getElementById("checkout").value);
+                
+                dayOfWeek = new Date().getDay();
+                
+                if ((checkout >= 50) && dayOfWeek == 2 || dayOfWeek == 3) {
+                    console.log("first condition met");
+                    //apply discount
+                    discount = checkout * .10;
+                    checkout -= discount;
+                    
+                    applyTax();
+                } else {
+                    applyTax();
+                    console.log("second condition met");
+                };
+                
+                document.getElementById("answer").innerHTML = checkout;
+            };
+            
+            function applyTax() {
+                tax = checkout * .06;
+                checkout += tax; 
+                checkout = Math.round(100 * checkout)/100;
+            };
+            
+            submit.addEventListener("click", calculate);
+        </script>
+        
+    </body>
+</html>
