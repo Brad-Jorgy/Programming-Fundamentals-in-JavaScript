@@ -1,0 +1,62 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ch. 7, Asgmt. 5</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+
+        <div class="stage">
+            <p> Chapter 7</p>
+            <p>5. Write defining table and then a program to determine if you and your date will be allowed to eat in a fancy and fashionable restaurant. Your program should read two integers from the keyboard, one that specifies your fashion measure from 1 to 10, inclusive...</p>
+            
+            
+            <form>
+                Your fashion meausre:
+                <input id="firstNo" type="number" min="0" max="10" required>
+                Your date's fashion meausre:
+                <input id="secondNo" type="number" min="0" max="10" required> 
+                
+                <button id="submit" type="button">Submit</button>
+                
+                <p>Result: <span id="result"></span></p>
+            </form>
+        </div>
+        
+        <script>
+            var firstNo,
+                secondNo,
+                sum,
+                result;
+            var submit = document.getElementById("submit");
+            
+            function calculate() {
+                var firstNo = parseFloat(document.getElementById("firstNo").value);
+                var secondNo = parseFloat(document.getElementById("secondNo").value);
+                
+                sum = firstNo + secondNo;
+                
+                if (sum >= 12) {
+                    result = "Welcome";
+                } else if (sum <= 2) {
+                    result = "Not a chance";
+                } else if (firstNo >= 8 || secondNo >= 8) {
+                    result = "Welcome";
+                } else {
+                    result = "Unlikely";
+                }
+               
+                document.getElementById("result").innerHTML = result;
+            };
+            
+            submit.addEventListener("click", calculate);
+        </script>
+        
+    </body>
+</html>
