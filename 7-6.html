@@ -1,0 +1,82 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ch. 7, Asgmt. 2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+    <body>
+
+        <div class="stage">
+            <p> Chapter 7</p>
+            <p>6. Write a defining table and then a program that determines what time a child should go to bed. Your program must read a child’s age and the season (winter, spring, summer, or fall) from the keyboard and output the child’s bedtime...</p>
+            <form>
+                <select id='allSeasons'>
+                    <option value=''>--Select Season--</option>
+                    <option value='1'>Spring</option>
+                    <option value='2'>Summer</option>
+                    <option value='3'>Fall</option>
+                    <option value='4'>Winter</option>
+                </select> 
+                
+                <br>
+                <br>
+                
+                 Your kid's age:
+                <input id="age" type="number" required>
+                
+                <button id="submit" type="button">Submit</button>
+                
+                <p>Your child should go to sleep at: <span id="answer"></span></p>
+            </form>
+        </div>
+        
+        <script>
+            var allSeasons,
+                season,
+                age,
+                a;
+            var submit = document.getElementById("submit");
+            
+            function calculate() {
+                allSeasons = document.getElementById("allSeasons");
+                season = parseFloat(allSeasons.options[allSeasons.selectedIndex].value);
+                
+                var age = parseFloat(document.getElementById("age").value);
+                
+                console.log("season is " + season + ", age is " + age)
+                
+                //5 or under
+                if ((season == 2 || season == 3) && age <= 5) {
+                    a = "8:30pm";
+                } else if ((season == 4 || season == 1) && age <= 5) {
+                    a = "8:00pm";
+                //6 - 12
+                } else if (season == 2 && (age >= 6 && age <= 12)) {
+                    a = "9:30pm";
+                } else if ((season == 1 || season == 3 || season == 4) && (age >= 6 && age <= 12)) {
+                    a = "8:30pm";
+                //13 and older
+                } else if (season == 2 && age >= 13) {
+                    a = "10:30pm";
+                } else if ((season == 1 || season == 3 || season == 4) && age >= 13) {
+                    a = "9:30pm";
+                //Just in case.
+                } else {
+                    a = "Error."
+                }
+                
+                document.getElementById("answer").innerHTML = a;
+            };
+            
+            submit.addEventListener("click", calculate);
+            
+        </script>
+        
+    </body>
+</html>
